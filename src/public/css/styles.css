@@ -1,114 +1,88 @@
-/* General Styles */
+/* Reset General */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Mejora para evitar problemas de tamaño */
+    box-sizing: border-box;
   }
   
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #d80719 0%, #353433 100%);
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #a20b15, #571d1d);
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Cambiado height por min-height */
-    overflow-x: hidden;
+    min-height: 100vh;
   }
   
   .container {
     width: 90%;
     max-width: 600px;
-    margin: 20px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
+    background: #2c0b0b;
     border-radius: 12px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
   
-  /* Títulos */
+  /* Título */
   h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 2rem;
     text-align: center;
+    color: #ff9900;
     margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, #ff8a00, #e5ca2e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
   
   /* Formulario */
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
   .form input,
   .form button {
     width: 100%;
-    padding: 14px;
-    font-size: 1rem;
+    padding: 10px;
+    margin: 10px 0;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
   }
   
   .form input {
-    border: 1px solid #ddd;
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .form input:focus {
-    border-color: #2575fc;
-    box-shadow: 0 0 10px rgba(37, 117, 252, 0.7);
+    background: #f5f5f5;
+    color: #333;
   }
   
   .form button {
-    background: linear-gradient(45deg, #c91919, #861805);
+    background-color: #b32b2b;
     color: #fff;
     font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .form button:hover {
-    background: linear-gradient(45deg, #d88405, #e7b307);
-    transform: translateY(-3px);
-  }
-  
-  /* Lista de usuarios */
-  .user-list {
-    list-style: none;
-    margin-top: 20px;
-  }
-  
-  .user-list li {
-    background: #f9f9f9;
-    color: #333;
-    margin-bottom: 10px;
-    padding: 12px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .user-list button {
-    padding: 8px 12px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
   }
   
-  .user-list button:hover {
-    transform: translateY(-2px);
+  .form button:hover {
+    background-color: #e55656;
+  }
+  
+  /* Lista de Usuarios */
+  .user-list {
+    list-style: none;
+  }
+  
+  .user-list li {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .user-list button {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
   
   .user-list .edit {
@@ -119,43 +93,71 @@
     background: #f44336;
   }
   
-  /* Media Queries para Responsividad */
+  .user-list button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Sección Editar Usuario */
+  .edit-user {
+    background: #222;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+  }
+  
+  .edit-user h2 {
+    font-size: 1.5rem;
+    color: #ff9900;
+    margin-bottom: 10px;
+  }
+  
+  .edit-user input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    background: #f5f5f5;
+    color: #333;
+  }
+  
+  .edit-user button {
+    padding: 8px 12px;
+    margin-right: 5px;
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .edit-user button.cancel {
+    background: #f44336;
+  }
+  
+  .edit-user button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Media Query para dispositivos móviles */
   @media (max-width: 768px) {
     .container {
-      width: 95%;
-    }
-  
-    h1 {
-      font-size: 2rem;
-    }
-  
-    .form button {
-      font-size: 0.9rem;
+      width: 100%;
+      padding: 10px;
     }
   
     .user-list li {
       flex-direction: column;
-      gap: 10px;
+      align-items: flex-start;
     }
   
     .user-list button {
       width: 100%;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 1.8rem;
+      margin-top: 5px;
     }
   
-    .form input,
-    .form button {
+    .edit-user input {
       font-size: 0.9rem;
-      padding: 10px;
-    }
-  
-    .user-list li {
-      padding: 10px;
     }
   }
   
