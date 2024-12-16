@@ -1,162 +1,293 @@
-/* Reset General */
-* {
+/* General Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #a20b15, #571d1d);
+  background: linear-gradient(135deg, #d80719 0%, #353433 100%);
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
 }
 
 .container {
+  text-align: center;
   width: 90%;
   max-width: 600px;
-  background: #2c0b0b;
-  border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.6s ease;
 }
 
-/* Título */
 h1 {
-  font-size: 2rem;
-  text-align: center;
-  color: #ff9900;
+  font-size: 2.8rem;
+  font-weight: bold;
   margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ff8a00, #e5ca2e, #e5ca2e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Formulario */
-.form input,
-.form button {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 6px;
+/* Form */
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
 
 .form input {
-  background: #f5f5f5;
-  color: #333;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  width: 100%;
+  max-width: 280px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form input:focus {
+  border: 2px solid #2575fc;
+  box-shadow: 0 0 10px rgba(37, 117, 252, 0.7);
+  background: #f0f8ff;
 }
 
 .form button {
-  background-color: #b32b2b;
-  color: #fff;
-  font-weight: bold;
+  background: linear-gradient(45deg, #c91919, #861805);
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  max-width: 320px;
 }
 
 .form button:hover {
-  background-color: #e55656;
+  background: linear-gradient(45deg, #d88405, #e7b307);
+  transform: translateY(-3px) scale(1.02);
 }
 
-/* Lista de Usuarios */
+.form button:active {
+  transform: translateY(0);
+}
+
+/* User List */
 .user-list {
   list-style: none;
+  padding: 0;
+  margin-top: 30px;
 }
 
 .user-list li {
-  background-color: #f5f5f5;
+  background: #f9f9f9;
   color: #333;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 6px;
+  margin: 12px 0;
+  padding: 15px;
+  border-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.user-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .user-list button {
-  padding: 6px 10px;
-  font-size: 0.9rem;
-  color: #fff;
+  background: linear-gradient(45deg, #f44336, #e53935);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.user-list .edit {
-  background: #4caf50;
-}
-
-.user-list .delete {
-  background: #f44336;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
 }
 
 .user-list button:hover {
-  opacity: 0.8;
+  background: linear-gradient(45deg, #e53935, #f44336);
+  transform: translateY(-3px) scale(1.05);
 }
 
-/* Sección Editar Usuario */
-.edit-user {
-  background: #222;
-  padding: 15px;
-  margin-top: 20px;
-  border-radius: 8px;
+.user-list button:active {
+  transform: translateY(0);
 }
 
-.edit-user h2 {
-  font-size: 1.5rem;
-  color: #ff9900;
-  margin-bottom: 10px;
+/* General Modal */
+.modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, #1e1e2e, #121212);
+justify-content: center;
+align-items: center;
+z-index: 1000;
 }
 
-.edit-user input {
-  width: 100%;
-  padding: 8px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  background: #f5f5f5;
-  color: #333;
+/* Contenido del Modal */
+.modal-content {
+background: linear-gradient(145deg, #252525, #2e2e2e);
+color: #fff;
+border-radius: 15px;
+padding: 30px;
+width: 500px;
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+position: relative;
+overflow: hidden;
+animation: slideIn 0.5s ease-out;
 }
 
-.edit-user button {
-  padding: 8px 12px;
-  margin-right: 5px;
-  background: #4caf50;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+@keyframes slideIn {
+from {
+  transform: translateY(-50px);
+  opacity: 0;
+}
+to {
+  transform: translateY(0);
+  opacity: 1;
+}
 }
 
-.edit-user button.cancel {
-  background: #f44336;
+/* Contenido del Modal - Barra Superior */
+.modal-content::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 6px;
+background: linear-gradient(90deg, #ff0080, #ff6a00, #ff0080);
+animation: gradientBar 3s linear infinite;
 }
 
-.edit-user button:hover {
-  opacity: 0.8;
+@keyframes gradientBar {
+0% {
+  background-position: 0%;
+}
+100% {
+  background-position: 100%;
+}
 }
 
-/* Media Query para dispositivos móviles */
-@media (max-width: 768px) {
-  .container {
-    width: 100%;
-    padding: 10px;
-  }
+/* Título Animado */
+.modal-content h2 {
+font-size: 2.5rem;
+color: #ff6a00;
+text-align: center;
+margin-bottom: 20px;
+text-transform: uppercase;
+font-weight: bold;
+letter-spacing: 2px;
+animation: pulseText 2s ease-in-out infinite;
+}
 
-  .user-list li {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+/* Animación del Título */
+@keyframes pulseText {
+0% {
+  transform: scale(1);
+  text-shadow: 0 0 10px #ff6a00, 0 0 20px #ff0080;
+}
+50% {
+  transform: scale(1.05);
+  text-shadow: 0 0 15px #ff6a00, 0 0 30px #ff0080;
+}
+100% {
+  transform: scale(1);
+  text-shadow: 0 0 10px #ff6a00, 0 0 20px #ff0080;
+}
+}
 
-  .user-list button {
-    width: 100%;
-    margin-top: 5px;
-  }
+/* Formulario */
+.form-group {
+margin-bottom: 20px;
+}
 
-  .edit-user input {
-    font-size: 0.9rem;
-  }
+.form-group label {
+font-size: 1rem;
+color: #ddd;
+font-weight: 600;
+margin-bottom: 10px;
+display: block;
+}
+
+.form-group input {
+width: 100%;
+padding: 12px 15px;
+font-size: 1rem;
+border: 1px solid #444;
+border-radius: 8px;
+background-color: #333;
+color: #fff;
+transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+border-color: #ff6a00;
+box-shadow: 0 0 8px rgba(255, 106, 0, 0.8);
+outline: none;
+}
+
+/* Botones */
+.modal-buttons {
+display: flex;
+justify-content: space-between;
+margin-top: 25px;
+}
+
+.btn {
+flex: 0 0 48%;
+padding: 10px;
+font-size: 1rem;
+font-weight: bold;
+color: #fff;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+transition: all 0.3s ease;
+text-transform: uppercase;
+}
+
+.save-btn {
+background: linear-gradient(90deg, #28a745, #218838);
+box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.save-btn:hover {
+transform: translateY(-3px);
+background: linear-gradient(90deg, #218838, #1e7e34);
+}
+
+.cancel-btn {
+background: linear-gradient(90deg, #dc3545, #c82333);
+box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+}
+
+.cancel-btn:hover {
+transform: translateY(-3px);
+background: linear-gradient(90deg, #c82333, #b21f2d);
+}
+
+.save-btn:active,
+.cancel-btn:active {
+transform: scale(0.95);
 }
