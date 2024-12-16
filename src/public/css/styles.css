@@ -1,112 +1,95 @@
 /* General Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #d80719 0%, #353433 100%);
+    background: linear-gradient(135deg, #8b0000 0%, #ff6347 100%);
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    box-sizing: border-box;
   }
   
   .container {
-    text-align: center;
-    width: 90%;
-    max-width: 600px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.85);
-    border-radius: 12px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-    margin-top: 20px; /* Ajuste para mejor espaciado */
+    background: rgba(139, 0, 0, 0.9);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  }
+  
+  h1 {
+    background: linear-gradient(90deg, #ff4500, #ff6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Form */
+  .form input {
+    border: 1px solid #d32f2f;
+    background: #fff5f5;
+  }
+  
+  .form input:focus {
+    border: 2px solid #ff6347;
+    box-shadow: 0 0 10px rgba(255, 99, 71, 0.7);
+    background: #ffecec;
+  }
+  
+  .form button {
+    background: linear-gradient(45deg, #e57373, #d32f2f);
+  }
+  
+  .form button:hover {
+    background: linear-gradient(45deg, #d32f2f, #e57373);
   }
   
   /* User List */
   .user-list li {
-    background: #2f2f2f; /* Cambio para más contraste */
-    color: #f0f0f0; /* Texto más claro */
-    margin: 12px 0;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .user-list li:hover {
-    background: #444; /* Efecto hover más visible */
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    background: #fff0f0;
+    color: #8b0000;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   }
   
   .user-list button {
-    background: linear-gradient(45deg, #e53935, #d32f2f);
-    color: white;
-    padding: 8px 16px; /* Ajuste menor */
-    border-radius: 8px;
-    transition: transform 0.3s;
+    background: linear-gradient(45deg, #c62828, #b71c1c);
   }
   
   .user-list button:hover {
-    background: linear-gradient(45deg, #d32f2f, #b71c1c);
-    transform: translateY(-2px) scale(1.03);
+    background: linear-gradient(45deg, #b71c1c, #c62828);
   }
   
-  /* Form Enhancements */
-  .form input {
-    padding: 12px;
-    border: 1px solid #666; /* Mejor contraste en borde */
-    background-color: #222;
-    color: #f0f0f0;
+  /* Modal */
+  .modal {
+    background: rgba(139, 0, 0, 0.9);
   }
   
-  .form input:focus {
-    border: 2px solid #e5ca2e;
-    box-shadow: 0 0 10px rgba(255, 198, 0, 0.8);
-  }
-  
-  .form button {
-    background: linear-gradient(45deg, #c91919, #861805);
-    transition: all 0.3s ease;
-  }
-  
-  .form button:hover {
-    background: linear-gradient(45deg, #e5ca2e, #d88405);
-  }
-  
-  /* Modal Adjustments */
   .modal-content {
-    width: 95%; /* Responsividad */
-    max-width: 500px;
+    background: linear-gradient(145deg, #ffecec, #ffdddd);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
   
   .modal-content h2 {
-    font-size: 2rem; /* Reducción menor */
-    color: #ff6a00;
+    background: linear-gradient(90deg, #e53935, #ff6b6b, #c62828);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
-  .modal-buttons .btn {
-    padding: 12px;
-    font-size: 0.9rem;
+  .form-group label {
+    color: #d32f2f;
   }
   
-  @media (max-width: 600px) {
-    .container {
-      padding: 15px;
-    }
-    
-    .form input {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-    
-    .modal-content {
-      padding: 20px;
-    }
+  .form-group input {
+    background: #fff5f5;
+  }
+  
+  .form-group input:focus {
+    border: 2px solid #e57373;
+    box-shadow: 0 4px 8px rgba(229, 115, 115, 0.5);
+  }
+  
+  .save-btn {
+    background: linear-gradient(90deg, #d32f2f, #c62828);
+    box-shadow: 0 4px 8px rgba(211, 47, 47, 0.5);
+  }
+  
+  .cancel-btn {
+    background: linear-gradient(90deg, #f44336, #e53935);
+    box-shadow: 0 4px 8px rgba(244, 67, 54, 0.5);
+  }
+  
+  .modal-content::before {
+    background: linear-gradient(90deg, #e53935, #ff6b6b, #c62828);
   }
   
